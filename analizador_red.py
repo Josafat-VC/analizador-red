@@ -62,6 +62,7 @@ class AnalizadorRed:
     def iniciar_captura(self, max_paquetes=None):
         """Iniciar la captura de paquetes"""
         print(f"Iniciando captura en la interfaz: {self.interfaz}")
+        print(f"Para detener la captura de datos: Control + C ")
         try:
             sniff(iface=self.interfaz, prn=self.procesar_paquete, count=max_paquetes)
         except Exception as e:
@@ -120,7 +121,7 @@ class AnalizadorRed:
 
 def main():
     # Nombre de interfaz de red
-    interfaz = "Ethernet"
+    interfaz = input("Ingresa el nombre de la interfaz: ")
     # Nombre del archivo Excel
     archivo = "captura_red.xlsx"
 
